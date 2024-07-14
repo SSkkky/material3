@@ -56,12 +56,29 @@ const FAB = (label, lowered, size, icon) => {
   )
 }
 
+const ToggleIconBtns = (disabled, icon, selectedIcon) => {
+  return(
+     <div class="column">
+          <p>Filled tonal</p>
+          <md-filled-tonal-icon-button
+            aria-label="Open menu"
+            aria-label-selected="Close menu"
+            toggle
+            disabled={disabled}>
+            <md-icon>{icon || 'menu'}</md-icon>
+            <md-icon slot="selected">{selectedIcon || 'close'}</md-icon>
+          </md-filled-tonal-icon-button>
+        </div>
+  )
+}
+
 
 function App() {
   return (
     <div className="App">
       {standard(icon_Google,"제목","안내글입니당",false,false)}
       {FAB("라벨", false, "medium", icon_Google)}
+      {ToggleIconBtns(false, <span class="material-icons">&#xE87C;</span>, <span class="material-icons">&#xE87C;</span>)}
     </div>
   );
 }
